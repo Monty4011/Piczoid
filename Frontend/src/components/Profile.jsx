@@ -23,9 +23,9 @@ const Profile = () => {
   useGetUserProfile(userId);
   const { userProfile, user } = useSelector((store) => store.auth);
 
-  const isLoggedInUserProfile = user._id === userProfile._id;
+  const isLoggedInUserProfile = user?._id === userProfile?._id;
   const [isFollowing, setIsFollowing] = useState(
-    userProfile.followers.includes(user._id)
+    userProfile?.followers.includes(user?._id)
   );
 
   const [activeTab, setActiveTab] = useState("posts");
@@ -48,9 +48,9 @@ const Profile = () => {
         if (res.data.type === "unfollow") {
           // Remove from followers and update userProfile
           const updatedFollowers = userProfile.followers.filter(
-            (id) => id !== user._id
+            (id) => id !== user?._id
           );
-          const updatedFollowing = user.following.filter((id) => id !== userId);
+          const updatedFollowing = user?.following.filter((id) => id !== userId);
 
           dispatch(
             setUserProfile({ ...userProfile, followers: updatedFollowers })
@@ -63,7 +63,7 @@ const Profile = () => {
           dispatch(
             setUserProfile({
               ...userProfile,
-              followers: [...userProfile.followers, user._id],
+              followers: [...userProfile.followers, user?._id],
             })
           );
           dispatch(
@@ -90,9 +90,12 @@ const Profile = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("https://piczoid.onrender.com/api/v1/user/logout", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://piczoid.onrender.com/api/v1/user/logout",
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setAuthUser(null));
         dispatch(setSelectedPost(null));
@@ -236,7 +239,7 @@ const Profile = () => {
           <div className="grid grid-cols-3 gap-1">
             {displayedPost?.map((post) => {
               return (
-                <div key={post._id} className="relative group cursor-pointer">
+                <div key={post?._id} className="relative group cursor-pointer">
                   <img
                     src={post.image}
                     alt="postimage"
