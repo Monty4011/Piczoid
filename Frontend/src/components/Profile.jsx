@@ -40,7 +40,7 @@ const Profile = () => {
   const followUnfollowHandler = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/v1/user/followorunfollow/${userId}`,
+        `https://piczoid.onrender.com/api/v1/user/followorunfollow/${userId}`,
         { withCredentials: true }
       );
 
@@ -90,7 +90,7 @@ const Profile = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/v1/user/logout", {
+      const res = await axios.get("https://piczoid.onrender.com/api/v1/user/logout", {
         withCredentials: true,
       });
       if (res.data.success) {

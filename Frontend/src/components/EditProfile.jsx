@@ -65,7 +65,7 @@ const EditProfile = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/user/profile/edit",
+        "https://piczoid.onrender.com/api/v1/user/profile/edit",
         formdata,
         {
           headers: {

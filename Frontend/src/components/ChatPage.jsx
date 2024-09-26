@@ -23,7 +23,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/message/send/${receiverId}`,
+        `https://piczoid.onrender.com/api/v1/message/send/${receiverId}`,
         { textMessage },
         {
           headers: {

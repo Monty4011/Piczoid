@@ -16,7 +16,8 @@ const PORT = process.env.PORT || 8000
 const __dirname = path.resolve()
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: process.env.URL,
+    // origin: "http://localhost:5173",
     credentials: true
 }
 
