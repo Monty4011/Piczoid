@@ -17,16 +17,16 @@ const Comment = ({ comment }) => {
           <Avatar className="size-7 cursor-pointer">
             <AvatarImage src={comment?.author?.profilePicture} />
             <AvatarFallback>
-              {comment.author.username?.slice(0, 2).toUpperCase()}
+              {comment?.author?.username?.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
           <h1 className="font-bold text-sm cursor-pointer">
-            {comment?.author.username}{" "}
+            {comment?.author?.username}{" "}
             <span className="font-normal pl-1">{comment?.text}</span>
           </h1>
         </div>
         <div className="text-xs cursor-pointer">
-          {<p>{getDaysAgo(comment.createdAt)}d</p>}
+          {<p>{getDaysAgo(comment?.createdAt)}d</p>}
         </div>
       </div>
     </div>

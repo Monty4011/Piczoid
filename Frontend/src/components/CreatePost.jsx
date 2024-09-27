@@ -86,8 +86,8 @@ const CreatePost = ({ open, setOpen }) => {
           </Avatar>
           <div>
             <h1 className="font-semibold text-sm">
-              {user?.username.charAt(0).toUpperCase() +
-                user?.username.slice(1).toLowerCase()}
+              {user?.username?.charAt(0).toUpperCase() +
+                user?.username?.slice(1).toLowerCase()}
             </h1>
             <span className="text-gray-600 text-xs">{user?.bio}</span>
           </div>

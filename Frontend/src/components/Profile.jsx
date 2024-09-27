@@ -120,7 +120,7 @@ const Profile = () => {
                 alt="profilephoto"
               />
               <AvatarFallback className="text-5xl font-bold">
-                {userProfile.username?.slice(0, 2).toUpperCase()}
+                {userProfile?.username?.slice(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>
           </section>
@@ -128,8 +128,8 @@ const Profile = () => {
             <div className="flex flex-col gap-2 items-center">
               <div className=" flex flex-col items-center sm:flex-row sm:items-center gap-2 sm:pl-0">
                 <span>
-                  {userProfile.username.charAt(0).toUpperCase() +
-                    userProfile.username.slice(1).toLowerCase()}
+                  {userProfile?.username?.charAt(0).toUpperCase() +
+                    userProfile?.username?.slice(1).toLowerCase()}
                 </span>
                 {isLoggedInUserProfile ? (
                   <>
@@ -151,7 +151,7 @@ const Profile = () => {
                       </Button>
                     </div>
                   </>
-                ) : userProfile.followers.length > 0 ? (
+                ) : userProfile?.followers?.length > 0 ? (
                   <>
                     <Button
                       onClick={followUnfollowHandler}
@@ -181,19 +181,19 @@ const Profile = () => {
               <div className="flex items-center gap-4">
                 <p>
                   <span className="font-semibold">
-                    {userProfile?.posts.length}{" "}
+                    {userProfile?.posts?.length}{" "}
                   </span>
                   posts
                 </p>
                 <p>
                   <span className="font-semibold">
-                    {userProfile?.followers.length}{" "}
+                    {userProfile?.followers?.length}{" "}
                   </span>
                   followers
                 </p>
                 <p>
                   <span className="font-semibold">
-                    {userProfile?.following.length}{" "}
+                    {userProfile?.following?.length}{" "}
                   </span>
                   following
                 </p>
@@ -241,7 +241,7 @@ const Profile = () => {
               return (
                 <div key={post?._id} className="relative group cursor-pointer">
                   <img
-                    src={post.image}
+                    src={post?.image}
                     alt="postimage"
                     className="rounded-sm my-2 w-full aspect-square object-cover"
                   />

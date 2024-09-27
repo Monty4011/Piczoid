@@ -90,8 +90,8 @@ const CommentDialog = ({ open, setOpen }) => {
                 </Link>
                 <div className="flex gap-3 items-center">
                   <Link className="font-semibold text-sm">
-                    {selectedPost?.author?.username.charAt(0).toUpperCase() +
-                      selectedPost?.author?.username.slice(1).toLowerCase()}
+                    {selectedPost?.author?.username?.charAt(0).toUpperCase() +
+                      selectedPost?.author?.username?.slice(1).toLowerCase()}
                   </Link>
                   <span className="text-gray-600 text-xs">
                     {selectedPost?.author?.bio}
@@ -115,7 +115,7 @@ const CommentDialog = ({ open, setOpen }) => {
             <div className="flex-1 max-h-36 overflow-y-scroll sm:max-h-96 p-2 sm:p-4">
             <h2 className="text-base sm:hidden">Comments</h2>
               {comment.map((comment) => (
-                <Comment key={comment._id} comment={comment} />
+                <Comment key={comment?._id} comment={comment} />
               ))}
             </div>
             <div className="p-4">

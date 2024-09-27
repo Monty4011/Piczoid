@@ -52,31 +52,31 @@ const ChatPage = () => {
       <section className="w-fit md:w-1/4 my-2 sm:my-8">
         <div className="flex flex-col sm:flex-row items-center mb-2 sm:mb-4 ">
           <h1 className=" font-bold px-1 text-base sm:px-3 sm:text-xl">
-            {user.username.charAt(0).toUpperCase() +
-              user.username.slice(1).toLowerCase()}
+            {user?.username?.charAt(0).toUpperCase() +
+              user?.username?.slice(1).toLowerCase()}
           </h1>
           <p className={`text-xs font-bold text-green-600`}>online</p>
         </div>
         <hr className="mb-2 sm:mb-4 border-gray-300" />
         <div className="overflow-y-auto h-[80vh]">
-          {suggestedUsers.map((suggestedUser) => {
-            const isOnline = onlineUsers.includes(suggestedUser._id);
+          {suggestedUsers?.map((suggestedUser) => {
+            const isOnline = onlineUsers?.includes(suggestedUser?._id);
             return (
               <div
-                key={suggestedUser._id}
+                key={suggestedUser?._id}
                 onClick={() => dispatch(setSelectedUser(suggestedUser))}
                 className="flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer"
               >
                 <Avatar className="size-7 sm:size-12">
                   <AvatarImage src={suggestedUser?.profilePicture} />
                   <AvatarFallback>
-                    {suggestedUser.username?.slice(0, 2).toUpperCase()}
+                    {suggestedUser?.username?.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
                   <span className="font-medium">
-                    {suggestedUser.username.charAt(0).toUpperCase() +
-                      suggestedUser.username.slice(1).toLowerCase()}
+                    {suggestedUser?.username?.charAt(0).toUpperCase() +
+                      suggestedUser?.username?.slice(1).toLowerCase()}
                   </span>
                   <span
                     className={`text-xs font-bold ${
@@ -99,13 +99,13 @@ const ChatPage = () => {
               <Avatar className="size-8 sm:size-14">
                 <AvatarImage src={selectedUser?.profilePicture} alt="profile" />
                 <AvatarFallback>
-                  {selectedUser.username?.slice(0, 2).toUpperCase()}
+                  {selectedUser?.username?.slice(0, 2).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
                 <span>
-                  {selectedUser.username.charAt(0).toUpperCase() +
-                    selectedUser.username.slice(1).toLowerCase()}
+                  {selectedUser?.username?.charAt(0).toUpperCase() +
+                    selectedUser?.username?.slice(1).toLowerCase()}
                 </span>
               </div>
             </div>

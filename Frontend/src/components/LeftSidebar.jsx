@@ -124,7 +124,7 @@ const LeftSidebar = () => {
           </Link>
         </div>
         <div>
-          {sidebarItems.map((item, index) => {
+          {sidebarItems?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -134,7 +134,7 @@ const LeftSidebar = () => {
                 {item.icon}
                 <span className="hidden lg:inline">{item.text}</span>
                 {item.text === "Notifications" &&
-                  allNotifications.length > 0 && (
+                  allNotifications?.length > 0 && (
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button
@@ -149,34 +149,34 @@ const LeftSidebar = () => {
                           {allNotifications === 0 ? (
                             <p>No new notification</p>
                           ) : (
-                            allNotifications.map((notification) => {
+                            allNotifications?.map((notification) => {
                               return (
                                 <div
-                                  key={notification.userId}
+                                  key={notification?.userId}
                                   className="flex items-center gap-2 my-2"
                                 >
                                   <Avatar>
                                     <AvatarImage
                                       src={
-                                        notification.userDetails?.profilePicture
+                                        notification?.userDetails?.profilePicture
                                       }
                                     />
                                     <AvatarFallback>
-                                      {notification.userDetails?.username
+                                      {notification?.userDetails?.username
                                         ?.slice(0, 2)
                                         .toUpperCase()}
                                     </AvatarFallback>
                                   </Avatar>
                                   <p className="text-sm">
                                     <span className="font-bold">
-                                      {notification.userDetails?.username
+                                      {notification?.userDetails?.username
                                         .charAt(0)
                                         .toUpperCase() +
-                                        notification.userDetails?.username
+                                        notification?.userDetails?.username
                                           .slice(1)
                                           .toLowerCase()}
                                     </span>{" "}
-                                    {notification.type === "like"
+                                    {notification?.type === "like"
                                       ? "liked your post"
                                       : "sent you a message"}
                                   </p>
@@ -188,59 +188,6 @@ const LeftSidebar = () => {
                       </PopoverContent>
                     </Popover>
                   )}
-                {/* {item.text === "Notifications" &&
-                  messageNotification?.length > 0 && (
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          size="icon"
-                          className="rounded-full h-5 w-5 bg-red-600 hover:bg-red-600 absolute bottom-6 left-6"
-                        >
-                          {messageNotification.length}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent>
-                        <div>
-                          {messageNotification.length === 0 ? (
-                            <p>No new notification</p>
-                          ) : (
-                            messageNotification.map((notification) => {
-                              return (
-                                <div
-                                  key={notification.userId}
-                                  className="flex items-center gap-2 my-2"
-                                >
-                                  <Avatar>
-                                    <AvatarImage
-                                      src={
-                                        notification.userDetails?.profilePicture
-                                      }
-                                    />
-                                    <AvatarFallback>
-                                      {notification.userDetails?.username
-                                        ?.slice(0, 2)
-                                        .toUpperCase()}
-                                    </AvatarFallback>
-                                  </Avatar>
-                                  <p className="text-sm">
-                                    <span className="font-bold">
-                                      {notification.userDetails?.username
-                                        .charAt(0)
-                                        .toUpperCase() +
-                                        notification.userDetails?.username
-                                          .slice(1)
-                                          .toLowerCase()}
-                                    </span>{" "}
-                                    liked your post
-                                  </p>
-                                </div>
-                              );
-                            })
-                          )}
-                        </div>
-                      </PopoverContent>
-                    </Popover>
-                  )} */}
               </div>
             );
           })}

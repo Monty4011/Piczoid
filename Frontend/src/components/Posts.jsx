@@ -41,16 +41,16 @@ const Posts = () => {
           />
 
           <div className="p-1">
-            {filteredUsers.length == 0 && searchQuery !== "" ? (
+            {filteredUsers?.length == 0 && searchQuery !== "" ? (
               <div className="text-center py-3">
                 No user found with this username
               </div>
             ) : (
-              filteredUsers.map((item) => {
+              filteredUsers?.map((item) => {
                 return (
-                  <Link to={`/profile/${item._id}`}>
+                  <Link to={`/profile/${item?._id}`}>
                     <div
-                      key={item._id}
+                      key={item?._id}
                       className="flex p-1 items-center gap-5 hover:bg-gray-100 transition-all"
                     >
                       <Avatar className="size-10">
@@ -64,12 +64,12 @@ const Posts = () => {
                       </Avatar>
                       <div className="flex flex-col">
                         <h1 className="text-base">
-                          {item.username.charAt(0).toUpperCase() +
-                            item.username.slice(1).toLowerCase()}
+                          {item?.username?.charAt(0).toUpperCase() +
+                            item?.username?.slice(1).toLowerCase()}
                         </h1>
                         <div className="flex items-center gap-3 text-xs">
-                          <p>@{item.username}</p>
-                          <li>{item.followers.length} followers</li>
+                          <p>@{item?.username}</p>
+                          <li>{item?.followers?.length} followers</li>
                         </div>
                       </div>
                     </div>
@@ -82,7 +82,7 @@ const Posts = () => {
       </Dialog>
       <div className="z-0">
         {posts.map((post) => {
-          return <Post key={post._id} post={post} />;
+          return <Post key={post?._id} post={post} />;
         })}
       </div>
     </>

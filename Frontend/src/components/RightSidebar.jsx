@@ -20,8 +20,8 @@ const RightSidebar = () => {
         <div>
           <h1 className="font-semibold text-sm">
             <Link to={`/profile/${user?._id}`}>
-              {user?.username.charAt(0).toUpperCase() +
-                user?.username.slice(1).toLowerCase()}
+              {user?.username?.charAt(0).toUpperCase() +
+                user?.username?.slice(1).toLowerCase()}
             </Link>
           </h1>
           <span className="text-gray-600 text-sm">{user?.bio}</span>

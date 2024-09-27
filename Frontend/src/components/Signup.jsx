@@ -14,6 +14,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Loader2 } from "lucide-react";
 
 const Signup = () => {
   const {user} = useSelector(store=>store.auth)

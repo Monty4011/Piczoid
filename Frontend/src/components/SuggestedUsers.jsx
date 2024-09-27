@@ -15,7 +15,7 @@ const SuggestedUsers = () => {
       {suggestedUsers?.map((users) => {
         return (
           <div
-            key={users._id}
+            key={users?._id}
             className="flex items-center justify-between my-5 gap-2"
           >
             <div className="flex items-center gap-2">
@@ -26,15 +26,15 @@ const SuggestedUsers = () => {
                     alt="profilePicture"
                   />
                   <AvatarFallback>
-                    {users.username?.slice(0, 2).toUpperCase()}
+                    {users?.username?.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </Link>
               <div>
                 <h1 className="font-semibold text-sm">
                   <Link to={`/profile/${users?._id}`}>
-                    {users?.username.charAt(0).toUpperCase() +
-                      users?.username.slice(1).toLowerCase()}
+                    {users?.username?.charAt(0).toUpperCase() +
+                      users?.username?.slice(1).toLowerCase()}
                   </Link>
                 </h1>
                 <span className="text-gray-600 text-sm">{users?.bio}</span>

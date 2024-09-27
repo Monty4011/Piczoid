@@ -235,19 +235,19 @@ const Post = ({ post }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Avatar>
-            <Link to={`/profile/${post.author._id}`}>
-              <AvatarImage src={post.author?.profilePicture} alt="post_image" />
+            <Link to={`/profile/${post?.author._id}`}>
+              <AvatarImage src={post?.author?.profilePicture} alt="post_image" />
             </Link>
             <AvatarFallback>
-              {post.author?.username?.slice(0, 2).toUpperCase()}
+              {post?.author?.username?.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
           <div className="flex items-center gap-3">
             <h1>
-              {post.author.username.charAt(0).toUpperCase() +
-                post.author.username.slice(1).toLowerCase()}
+              {post?.author?.username.charAt(0).toUpperCase() +
+                post?.author?.username.slice(1).toLowerCase()}
             </h1>
-            {post.author._id === user._id && (
+            {post?.author?._id === user?._id && (
               <Badge variant="secondary">Author</Badge>
             )}
           </div>
@@ -262,8 +262,8 @@ const Post = ({ post }) => {
             onInteractOutside={outsideHandler}
             className="flex flex-col items-center text-sm text-center"
           >
-            {post.author._id !== user._id ? (
-              post.author.followers.length > 0 ? (
+            {post?.author?._id !== user?._id ? (
+              post?.author?.followers?.length > 0 ? (
                 <Button
                   variant="ghost"
                   className="cursor-pointer w-fit text-[#ED4956]"
@@ -292,7 +292,7 @@ const Post = ({ post }) => {
                 : "Add to favourites"}
             </Button>
             {user &&
-              user?._id === post.author?._id &&
+              user?._id === post?.author?._id &&
               (loading ? (
                 <Button variant="ghost">
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -312,7 +312,7 @@ const Post = ({ post }) => {
       </div>
       <img
         className="rounded-sm my-2 w-full aspect-square object-cover"
-        src={post.image}
+        src={post?.image}
         alt="post_img"
       />
 
@@ -354,11 +354,11 @@ const Post = ({ post }) => {
       </div>
       <div className="flex justify-between items-center">
         <span className="font-medium block mb-2">{postLike} likes</span>
-        {<p>{getDaysAgo(post.createdAt)}d ago</p>}
+        {<p>{getDaysAgo(post?.createdAt)}d ago</p>}
       </div>
 
       <p>
-        <span className="font-medium mr-2">{post.author?.username}</span>
+        <span className="font-medium mr-2">{post?.author?.username}</span>
         {post?.caption}
       </p>
       <span

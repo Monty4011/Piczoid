@@ -105,13 +105,13 @@ const EditProfile = () => {
             <Avatar>
               <AvatarImage src={user?.profilePicture} alt="post_image" />
               <AvatarFallback>
-                {user.username?.slice(0, 2).toUpperCase()}
+                {user?.username?.slice(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             <div>
               <h1 className="font-bold text-sm">
-                {user.username.charAt(0).toUpperCase() +
-                  user.username.slice(1).toLowerCase()}
+                {user?.username?.charAt(0).toUpperCase() +
+                  user?.username?.slice(1).toLowerCase()}
               </h1>
               <span className="hidden sm:inline text-gray-600">
                 {user?.bio}

@@ -113,7 +113,7 @@ const TopBar = () => {
           />
         </Link>
         <div className="flex items-center">
-          {sidebarItems.map((item, index) => {
+          {sidebarItems?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -122,46 +122,46 @@ const TopBar = () => {
               >
                 {item.icon}
                 {item.text === "Notifications" &&
-                  likeNotification.length > 0 && (
+                  likeNotification?.length > 0 && (
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button
                           size="icon"
                           className="rounded-full h-5 w-5 bg-red-600 hover:bg-red-600 absolute bottom-6 left-6"
                         >
-                          {likeNotification.length}
+                          {likeNotification?.length}
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent>
                         <div>
-                          {likeNotification.length === 0 ? (
+                          {likeNotification?.length === 0 ? (
                             <p>No new notification</p>
                           ) : (
-                            likeNotification.map((notification) => {
+                            likeNotification?.map((notification) => {
                               return (
                                 <div
-                                  key={notification.userId}
+                                  key={notification?.userId}
                                   className="flex items-center gap-2 my-2"
                                 >
                                   <Avatar>
                                     <AvatarImage
                                       src={
-                                        notification.userDetails?.profilePicture
+                                        notification?.userDetails?.profilePicture
                                       }
                                     />
                                     <AvatarFallback>
-                                      {notification.userDetails?.username
+                                      {notification?.userDetails?.username
                                         ?.slice(0, 2)
                                         .toUpperCase()}
                                     </AvatarFallback>
                                   </Avatar>
                                   <p className="text-sm">
                                     <span className="font-bold">
-                                      {notification.userDetails?.username
-                                        .charAt(0)
+                                      {notification?.userDetails?.username
+                                        ?.charAt(0)
                                         .toUpperCase() +
-                                        notification.userDetails?.username
-                                          .slice(1)
+                                        notification?.userDetails?.username
+                                          ?.slice(1)
                                           .toLowerCase()}
                                     </span>{" "}
                                     liked your post

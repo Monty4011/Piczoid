@@ -19,12 +19,12 @@ const Messages = ({ selectedUser }) => {
           <Avatar className="size-14 sm:h-20 sm:w-20">
             <AvatarImage src={selectedUser?.profilePicture} alt="profile" />
             <AvatarFallback>
-              {selectedUser.username?.slice(0, 2).toUpperCase()}
+              {selectedUser?.username?.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
           <span>
-            {selectedUser.username.charAt(0).toUpperCase() +
-              selectedUser.username.slice(1).toLowerCase()}
+            {selectedUser?.username?.charAt(0).toUpperCase() +
+              selectedUser?.username?.slice(1).toLowerCase()}
           </span>
           <Link to={`/profile/${selectedUser?._id}`}>
             <Button className="h-8 my-2" variant="secondary">
@@ -39,19 +39,19 @@ const Messages = ({ selectedUser }) => {
           messages.map((msg) => {
             return (
               <div
-                key={msg._id}
+                key={msg?._id}
                 className={`flex text-sm sm:text-base ${
-                  msg.senderId === user?._id ? "justify-end" : "justify-start"
+                  msg?.senderId === user?._id ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
                   className={`p-2 rounded-lg max-w-xs break-words ${
-                    msg.senderId === user?._id
+                    msg?.senderId === user?._id
                       ? "bg-blue-500 text-white"
                       : "bg-gray-200 text-black"
                   }`}
                 >
-                  {msg.message}
+                  {msg?.message}
                 </div>
               </div>
             );
